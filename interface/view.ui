@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>320</y>
+      <y>330</y>
       <width>141</width>
       <height>71</height>
      </rect>
@@ -27,10 +27,62 @@
      <string>Iniciar processador</string>
     </property>
    </widget>
+   <widget class="QLabel" name="lbl_pronto_2">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>310</y>
+      <width>95</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Legenda</string>
+    </property>
+   </widget>
    <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
       <x>50</x>
+      <y>40</y>
+      <width>751</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <widget class="QPushButton" name="btn_sistema">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string>Adicionar processo de sistema</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_interativo">
+     <property name="text">
+      <string>Adicionar processo interativo</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_batch">
+     <property name="text">
+      <string>Adicionar processo batch</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QSplitter" name="splitter_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
       <y>80</y>
       <width>768</width>
       <height>192</height>
@@ -48,37 +100,73 @@
       </font>
      </property>
     </widget>
-    <widget class="QListWidget" name="fila_batch"/>
-    <widget class="QListWidget" name="fila_interativa"/>
+    <widget class="QListWidget" name="fila_interativa">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="fila_batch">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+    </widget>
    </widget>
-   <widget class="QSplitter" name="splitter_2">
+   <widget class="QSplitter" name="splitter_3">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>40</y>
-      <width>771</width>
-      <height>29</height>
+      <x>710</x>
+      <y>340</y>
+      <width>95</width>
+      <height>72</height>
      </rect>
     </property>
     <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+     <enum>Qt::Vertical</enum>
     </property>
-    <widget class="QPushButton" name="btn_sistema">
-     <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <widget class="QLabel" name="lbl_pronto">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(52, 152, 219);</string>
      </property>
      <property name="text">
-      <string>Adicionar processo de sistema</string>
+      <string>Pronto</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_batch">
+    <widget class="QLabel" name="lbl_espera">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(243, 156, 18);</string>
+     </property>
      <property name="text">
-      <string>Adicionar processo batch</string>
+      <string>Em espera</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::RichText</enum>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_interativo">
+    <widget class="QLabel" name="lbl_executando">
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(46, 204, 113);</string>
+     </property>
      <property name="text">
-      <string>Adicionar processo interativo</string>
+      <string>Executando</string>
      </property>
     </widget>
    </widget>
@@ -92,13 +180,6 @@
      <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuInicio">
-    <property name="title">
-     <string>Inicio</string>
-    </property>
-    <addaction name="actionSobre"/>
-   </widget>
-   <addaction name="menuInicio"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSobre">
