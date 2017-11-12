@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from utils.fila import Circular
+from utils.fila import Prioridade
 from utils.processo import Processo
 
 from PyQt5.QtGui import *
@@ -15,9 +16,19 @@ from PyQt5.QtWidgets import *
 
 class Ui_MainWindow(QWidget):
 
-    # Executando: #2ecc71
-    # Pronto: #3498db
-    # Em espera: #f39c12
+    def executa_processos(self):
+
+        if self.prioridade != 0:
+            self.prioridade.run(self.fila_sistema)
+        elif self.interativo != 0:
+            self.interativo.run(self.fila_interativa)
+        elif self.batch != 0:
+            self.batch.run(self.fila_batch)
+
+        # item = self.fila_batch.item(1)
+        # item.setBackground(QColor('#2ecc71'))
+
+        # self.fila_batch.takeItem(0)
 
     def get_info(self):
         id, ok = QInputDialog.getInt(self, 'ID', 'Insira o ID do processo')
@@ -54,16 +65,20 @@ class Ui_MainWindow(QWidget):
 
     def setupUi(self, MainWindow):
 
+        self.prioridade = Prioridade(5, 4, 11)
         self.interativo = Circular(3, 4, 10)
-        self.batch = Circular(1, 4, 13)
+        self.batch = Circular(1, 4, 9)
 
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(860, 490)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.btn_executa = QtWidgets.QPushButton(self.centralwidget)
         self.btn_executa.setGeometry(QtCore.QRect(20, 320, 141, 71))
         self.btn_executa.setObjectName("pushButton")
+        self.btn_executa.clicked.connect(self.executa_processos)
+
         self.splitter = QtWidgets.QSplitter(self.centralwidget)
         self.splitter.setGeometry(QtCore.QRect(50, 80, 768, 192))
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
@@ -76,11 +91,12 @@ class Ui_MainWindow(QWidget):
         self.fila_sistema.setFont(font)
         self.fila_sistema.setObjectName("fila_sistema")
 
-        self.fila_interativa = QtWidgets.QListWidget(self.splitter)
-        self.fila_interativa.setObjectName("fila_interativa")
 
         self.fila_batch = QtWidgets.QListWidget(self.splitter)
         self.fila_batch.setObjectName("fila_batch")
+
+        self.fila_interativa = QtWidgets.QListWidget(self.splitter)
+        self.fila_interativa.setObjectName("fila_interativa")
 
         self.splitter_2 = QtWidgets.QSplitter(self.centralwidget)
         self.splitter_2.setGeometry(QtCore.QRect(50, 40, 771, 29))
@@ -93,6 +109,7 @@ class Ui_MainWindow(QWidget):
 
         self.btn_batch = QtWidgets.QPushButton(self.splitter_2)
         self.btn_batch.setObjectName("btn_batch")
+        self.btn_batch.clicked.connect(self.add_processo_batch)
 
         self.btn_interativo = QtWidgets.QPushButton(self.splitter_2)
         self.btn_interativo.setObjectName("btn_interativo")
@@ -126,6 +143,7 @@ class Ui_MainWindow(QWidget):
         self.btn_interativo.setText(_translate("MainWindow", "Adicionar processo interativo"))
         self.menuInicio.setTitle(_translate("MainWindow", "Inicio"))
         self.actionSobre.setText(_translate("MainWindow", "Sobre"))
+
 
 if __name__ == "__main__":
     import sys

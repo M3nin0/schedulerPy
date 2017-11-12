@@ -48,8 +48,8 @@
       </font>
      </property>
     </widget>
-    <widget class="QListWidget" name="fila_interativa"/>
     <widget class="QListWidget" name="fila_batch"/>
+    <widget class="QListWidget" name="fila_interativa"/>
    </widget>
    <widget class="QSplitter" name="splitter_2">
     <property name="geometry">
