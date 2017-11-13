@@ -27,13 +27,15 @@ class Ui_MainWindow(QWidget):
         if self.fila_batch.count() > 0:
             self.batch.run(self.fila_batch)
 
-        # item = self.fila_batch.item(0)
-        # item.setBackground(QColor('#2ecc71'))
-        # item.setBackground(QColor('#2ecc71'))
-        # self.fila_batch.takeItem(0)
+    def get_info(self, tipo):
 
-    def get_info(self):
-        id, ok = QInputDialog.getInt(self, 'ID', 'Insira o ID do processo')
+        if tipo == 'sistema':
+            id = self.fila_sistema.count()
+        elif tipo == 'interativa':
+            id = self.fila_interativa.count()
+        elif tipo == 'batch':
+            id = self.fila_batch.count()
+
         tempo, ok = QInputDialog.getInt(self, 'Tempo', 'Insira o tempo de execução do processo')
         prioridade, ok = QInputDialog.getInt(self, 'Prioridade', 'Insira a prioridade do processo')
 
@@ -41,15 +43,15 @@ class Ui_MainWindow(QWidget):
 
     def add_processo_sistema(self):
 
-        id, tempo, prioridade = self.get_info()
+        id, tempo, prioridade = self.get_info('sistema')
 
         item = QtWidgets.QListWidgetItem('Processo ' + str(id))
         item.setBackground(QColor('#3498db'))
         self.fila_sistema.addItem(item)
-        # self.circular.add(Processo(id, tempo, prioridade))
+        self.prioridade.add(self.fila_sistema.count() - 1, Processo(self.fila_sistema.count(), tempo, prioridade))
 
     def add_processo_interativo(self):
-        id, tempo, prioridade = self.get_info()
+        id, tempo, prioridade = self.get_info('interativa')
 
         item = QtWidgets.QListWidgetItem('Processo ' + str(id))
         item.setBackground(QColor('#3498db'))
@@ -58,7 +60,7 @@ class Ui_MainWindow(QWidget):
 
     def add_processo_batch(self):
 
-        id, tempo, prioridade = self.get_info()
+        id, tempo, prioridade = self.get_info('batch')
 
         item = QtWidgets.QListWidgetItem('Processo ' + str(id))
         item.setBackground(QColor('#3498db'))
