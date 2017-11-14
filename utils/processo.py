@@ -1,21 +1,14 @@
-import functools
-
-'''
-Classe que representa o processo
-'''
-
 class Processo():
-    def __init__(self, id, tempo, prioridade):
+    def __init__(self, id, tempo_de_execucao, prioridade):
         self.id = id
-        # Tempo para executar o processo
-        self.tempo = tempo
+        self.tempo_de_execucao = tempo_de_execucao
         self.prioridade = prioridade
 
     def __eq__(self, obj):
         return self.prioridade == obj
 
-    def __lt__(self, other):
-        return self.prioridade > other.prioridade
+    def __lt__(self, obj):
+        return self.prioridade > obj.prioridade
 
     def __repr__(self):
-        return 'Obj(%r)' % self.value
+        return '%r' % self.value

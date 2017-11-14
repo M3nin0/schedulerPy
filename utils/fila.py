@@ -1,118 +1,35 @@
-'''
-Classe que representa o escalonamento circular
-'''
-
-# Cores dos estágios do processo
-# Executando: #2ecc71
-# Pronto: #3498db
-# Em espera: #f39c12
-
-from time import sleep
-from PyQt5.QtGui import *
+import numpy as np
 from utils.processo import Processo
-from operator import attrgetter
 
-class Circular():
+class Fila():
     def __init__(self, prioridade, qtd_processos, quantum):
-        self._prioridade = prioridade
-        self.fila = []
-        self._total = 0
-        self.qtd_processos = qtd_processos
-        # Tempo limite de cada execução
-        self.quantum = quantum
-        self.cores = {'executando': '#2ecc71', 'pronto': '#3498db', 'espera': '#f39c12'}
-
-    def refresh(self,lista):
-        lista.update()
-        lista.repaint()
-
-    @property
-    def prioridade(self):
-        return self._prioridade
-
-    def add(self, processo):
-        self.fila.append(processo)
-        # self.fila[processo.id] = processo
-
-    def remove(self, processo, lista):
-        lista.takeItem(0)
-        self.fila.remove(processo)
-        self.refresh(lista)
-        # del self.fila[processo.id]
-
-        # item = self.fila_batch.item(1)
-        # item.setBackground(QColor('#2ecc71'))
-
-        # self.fila_batch.takeItem(0)
-
-    def run(self, lista):
-        while len(self.fila) != 0:
-            for p in range(0, len(self.fila) - 1):
-                c = 0
-                item = lista.item(0)
-                item.setBackground(QColor(self.cores['executando']))
-                lista.insertItem(0, item)
-                self.refresh(lista)
-
-                while c < self.quantum:
-                    sleep(1)
-                    self.fila[p].tempo -= 1
-                    c += 1
-                if self.fila[p].tempo <= 0:
-                    self.remove(self.fila[p], lista)
-                else:
-                    lista.takeItem(0)
-                    item.setBackground(QColor(self.cores['pronto']))
-                    lista.addItem(item)
-                    self.refresh(lista)
-                    temp = self.fila[p]
-                    self.fila.remove(self.fila[p])
-                    self.fila.append(temp)
-
-class Prioridade():
-    def __init__(self, prioridade, qtd_processos, quantum):
-        self.exe = 0
         self.prioridade = prioridade
-        self.fila = {}
-        self._total = 0
         self.qtd_processos = qtd_processos
-        # Tempo limite de cada execução
         self.quantum = quantum
-        self.cores = {'executando': '#2ecc71', 'pronto': '#3498db', 'espera': '#f39c12'}
+        self.fila = np.ndarray(qtd_processos, Processo)
 
-    def refresh(self,lista):
-        lista.update()
-        lista.repaint()
+class FilaCircular(Fila):
+    def __init__(self, prioridade, qtd_processos, quantum):
+        super(FilaCircular, self).__init__(prioridade, qtd_processos, quantum)
+        self.primeiro = 0
+        self.total = 0
+        self.ultimo = 0
 
-    def add(self, id, processo):
-        self.fila[id] = processo
+    def is_full(self):
+        return self.total == self.qtd_processos
 
-    def remove(self, id, lista):
-        # lista.takeItem(id)
-        del self.fila[id]
-        self.refresh(lista)
+    def is_empty(self):
+        return self.total == 0
 
-    def removeAll(self, lista):
-        for key in self.fila.items():
-            try:
-                lista.takeItem(key)
-            except:
-                print('Erro ao tentar remover um ou mais arquivos')
+    def add_processo(self, processo):
+        if not self.is_full():
+            self.fila[self.ultimo] = processo
+            self.ultimo = (self.ultimo + 1) % len(self.fila)
+            self.total += 1
 
-    def run(self, lista):
-        while len(self.fila) != 0:
-            maior = max(self.fila.values(), key=attrgetter('prioridade'))
-            item = lista.item(maior.id - self.exe)
-            item.setBackground(QColor(self.cores['executando']))
-            lista.insertItem(0, item)
-            self.refresh(lista)
-            while maior.tempo > 0:
-                sleep(3)
-                maior.tempo -= 1
-            self.remove(maior.id, lista)
-            self.exe += 1
-
-            if self.exe > 2:
-                self.exe = 0
-        self.exe = 0
-        self.removeAll(lista)
+    def remove_processo(self):
+        if not self.is_empty():
+            temp = self.fila[self.primeiro]
+            self.primeiro = (self.primeiro + 1) % len(self.fila)
+            self.total -= 1
+            return temp
