@@ -33,3 +33,6 @@ class FilaCircular(Fila):
             self.primeiro = (self.primeiro + 1) % len(self.fila)
             self.total -= 1
             return temp
+
+    def ini():
+        pass

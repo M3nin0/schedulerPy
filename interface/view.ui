@@ -119,35 +119,12 @@
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="lbl_pronto">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>340</y>
-      <width>121</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(52, 152, 219);</string>
-    </property>
-    <property name="text">
-     <string>Pronto</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="lbl_espera">
     <property name="geometry">
      <rect>
       <x>710</x>
       <y>366</y>
-      <width>121</width>
+      <width>131</width>
       <height>20</height>
      </rect>
     </property>
@@ -173,7 +150,7 @@
      <rect>
       <x>710</x>
       <y>392</y>
-      <width>121</width>
+      <width>131</width>
       <height>20</height>
      </rect>
     </property>
@@ -189,6 +166,29 @@
     </property>
     <property name="text">
      <string>Executando</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_pronto">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>340</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(52, 152, 219);</string>
+    </property>
+    <property name="text">
+     <string>Pronto</string>
     </property>
    </widget>
   </widget>
