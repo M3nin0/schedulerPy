@@ -45,10 +45,10 @@ class Ui_MainWindow(QWidget):
 
         id, tempo, prioridade = self.get_info('sistema')
 
-        item = QtWidgets.QListWidgetItem('Processo ' + str(id))
+        item = QtWidgets.QListWidgetItem('Processo ' + str(id) + '\nPrioridade ' + str(prioridade))
         item.setBackground(QColor('#3498db'))
         self.fila_sistema.addItem(item)
-        self.prioridade.add(self.fila_sistema.count() - 1, Processo(self.fila_sistema.count(), tempo, prioridade))
+        self.prioridade.add(self.fila_sistema.count() - 1, Processo(self.fila_sistema.count() - 1, tempo, prioridade))
 
     def add_processo_interativo(self):
         id, tempo, prioridade = self.get_info('interativa')

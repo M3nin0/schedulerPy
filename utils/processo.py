@@ -1,3 +1,5 @@
+import functools
+
 '''
 Classe que representa o processo
 '''
@@ -8,3 +10,12 @@ class Processo():
         # Tempo para executar o processo
         self.tempo = tempo
         self.prioridade = prioridade
+
+    def __eq__(self, obj):
+        return self.prioridade == obj
+
+    def __lt__(self, other):
+        return self.prioridade > other.prioridade
+
+    def __repr__(self):
+        return 'Obj(%r)' % self.value

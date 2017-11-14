@@ -71,6 +71,7 @@ class Circular():
 
 class Prioridade():
     def __init__(self, prioridade, qtd_processos, quantum):
+        self.exe = 0
         self.prioridade = prioridade
         self.fila = {}
         self._total = 0
@@ -85,39 +86,33 @@ class Prioridade():
 
     def add(self, id, processo):
         self.fila[id] = processo
-        # self.fila.append(processo)
-        # self.fila[processo.id] = processo
 
     def remove(self, id, lista):
-        # lista.takeItem(0)
-        # self.fila.remove(processo)
-        print(id)
-        lista.takeItem(id)
-        self.refresh(lista)
+        # lista.takeItem(id)
         del self.fila[id]
+        self.refresh(lista)
 
-    def __eq__(self, obj):
-        return self.prioridade == obj
-
-    def __lt__(self, other):
-        return self.prioridade > other.prioridade
-
-    def __repr__(self):
-        return 'Obj(%r)' % self.value
+    def removeAll(self, lista):
+        for key in self.fila.items():
+            try:
+                lista.takeItem(key)
+            except:
+                print('Erro ao tentar remover um ou mais arquivos')
 
     def run(self, lista):
         while len(self.fila) != 0:
-            for key, processo in self.fila.items():
+            maior = max(self.fila.values(), key=attrgetter('prioridade'))
+            item = lista.item(maior.id - self.exe)
+            item.setBackground(QColor(self.cores['executando']))
+            lista.insertItem(0, item)
+            self.refresh(lista)
+            while maior.tempo > 0:
+                sleep(3)
+                maior.tempo -= 1
+            self.remove(maior.id, lista)
+            self.exe += 1
 
-                item = lista.item(key)
-                item.setBackground(QColor(self.cores['executando']))
-                lista.insertItem(0, item)
-                self.refresh(lista)
-
-                maior = max(self.fila.values())
-
-                while maior.tempo >= 0:
-                    sleep(3)
-                    maior.tempo -= 1
-                self.remove(key, lista)
-                break
+            if self.exe > 2:
+                self.exe = 0
+        self.exe = 0
+        self.removeAll(lista)
