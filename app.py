@@ -17,7 +17,7 @@ computador = Computador(6, window)
 window.btn_sistema.clicked.connect(lambda: computador.insere_processo('sistema'))
 window.btn_interativo.clicked.connect(lambda: computador.insere_processo('interativo'))
 window.btn_batch.clicked.connect(lambda: computador.insere_processo('batch'))
-
+window.pushButton.clicked.connect(lambda: computador.executa_processos())
 
 
 if __name__ == '__main__':
