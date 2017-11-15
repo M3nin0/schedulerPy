@@ -99,6 +99,9 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QListWidget" name="fila_interativa">
      <property name="font">
