@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>934</width>
-    <height>573</height>
+    <height>549</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,15 @@
       <height>91</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>Iniciar processador</string>
+     <string>Iniciar simulação</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_pronto_2">
@@ -150,14 +157,41 @@
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="btn_reset">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>400</y>
+      <width>191</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Resetar</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="btn_sistema">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>30</x>
       <y>40</y>
-      <width>196</width>
+      <width>261</width>
       <height>29</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -169,11 +203,18 @@
    <widget class="QPushButton" name="btn_interativo">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>330</x>
       <y>40</y>
-      <width>189</width>
+      <width>261</width>
       <height>29</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Adicionar processo interativo</string>
@@ -182,11 +223,18 @@
    <widget class="QPushButton" name="btn_batch">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>630</x>
       <y>40</y>
-      <width>165</width>
+      <width>261</width>
       <height>29</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Adicionar processo batch</string>
