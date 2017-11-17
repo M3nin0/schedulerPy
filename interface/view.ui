@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
-    <height>490</height>
+    <width>934</width>
+    <height>573</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>320</y>
+      <x>30</x>
+      <y>400</y>
       <width>191</width>
       <height>91</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QLabel" name="lbl_pronto_2">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>310</y>
+      <x>780</x>
+      <y>380</y>
       <width>95</width>
       <height>31</height>
      </rect>
@@ -48,42 +48,11 @@
      <string>Legenda</string>
     </property>
    </widget>
-   <widget class="QSplitter" name="splitter">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>40</y>
-      <width>751</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-    <widget class="QPushButton" name="btn_sistema">
-     <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="text">
-      <string>Adicionar processo de sistema</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_interativo">
-     <property name="text">
-      <string>Adicionar processo interativo</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="btn_batch">
-     <property name="text">
-      <string>Adicionar processo batch</string>
-     </property>
-    </widget>
-   </widget>
    <widget class="QLabel" name="lbl_espera">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>366</y>
+      <x>760</x>
+      <y>436</y>
       <width>131</width>
       <height>20</height>
      </rect>
@@ -108,8 +77,8 @@
    <widget class="QLabel" name="lbl_executando">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>392</y>
+      <x>760</x>
+      <y>462</y>
       <width>131</width>
       <height>20</height>
      </rect>
@@ -131,8 +100,8 @@
    <widget class="QLabel" name="lbl_pronto">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>340</y>
+      <x>760</x>
+      <y>410</y>
       <width>131</width>
       <height>20</height>
      </rect>
@@ -154,31 +123,73 @@
    <widget class="QWidget" name="fila_sistema" native="true">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>30</x>
       <y>80</y>
-      <width>171</width>
-      <height>221</height>
+      <width>261</width>
+      <height>271</height>
      </rect>
     </property>
    </widget>
    <widget class="QWidget" name="fila_interativa" native="true">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>330</x>
       <y>80</y>
-      <width>171</width>
-      <height>221</height>
+      <width>261</width>
+      <height>271</height>
      </rect>
     </property>
    </widget>
    <widget class="QWidget" name="fila_batch" native="true">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>630</x>
       <y>80</y>
-      <width>171</width>
-      <height>221</height>
+      <width>261</width>
+      <height>271</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_sistema">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>40</y>
+      <width>196</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Adicionar processo de sistema</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_interativo">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>40</y>
+      <width>189</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Adicionar processo interativo</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_batch">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>40</y>
+      <width>165</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Adicionar processo batch</string>
     </property>
    </widget>
   </widget>
@@ -187,7 +198,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>900</width>
+     <width>934</width>
      <height>23</height>
     </rect>
    </property>

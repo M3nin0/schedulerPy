@@ -9,9 +9,6 @@ from utils.processo import Processo
 from utils.computador import Computador
 from PyQt5.QtCore import QObject, pyqtSignal
 
-# from PyQt5.QtWidgets import QApplication, QPushButton, QAction, QInputDialog
-
-
 app = QApplication(sys.argv)
 window = loadUi('./interface/view.ui')
 stack_html = open('./interface/stack.html').read()
@@ -25,22 +22,28 @@ window.fila_interativa.setLayout(fila_interativa)
 window.fila_batch.setLayout(fila_batch)
 
 # Adicionando página html no qt
-view = QWebView()
-view.setHtml(stack_html)
+view_1 = QWebView()
+view_2 = QWebView()
+view_3 = QWebView()
+
+view_1.setHtml(stack_html)
+view_2.setHtml(stack_html)
+view_3.setHtml(stack_html)
 
 # Adicionando viewer a interface
-fila_sistema.addWidget(view)
-fila_interativa.addWidget(view)
-fila_batch.addWidget(view)
+fila_sistema.addWidget(view_1)
+fila_interativa.addWidget(view_2)
+fila_batch.addWidget(view_3)
 
 computador = Computador(6, window)
+
+frame = view_1.page().mainFrame()
 
 # Adicionando ações aos botões
 # window.btn_sistema.clicked.connect(lambda: computador.insere_processo('sistema'))
 # window.btn_interativo.clicked.connect(lambda: computador.insere_processo('interativo'))
 # window.btn_batch.clicked.connect(lambda: computador.insere_processo('batch'))
-# window.pushButton.clicked.connect(lambda: computador.executa_processos())
-
+window.pushButton.clicked.connect(lambda: frame.evaluateJavaScript('addSistema();'))
 
 if __name__ == '__main__':
 
