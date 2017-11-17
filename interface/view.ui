@@ -79,49 +79,6 @@
      </property>
     </widget>
    </widget>
-   <widget class="QSplitter" name="splitter_2">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>80</y>
-      <width>768</width>
-      <height>192</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-    <widget class="QListWidget" name="fila_sistema">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="sortingEnabled">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QListWidget" name="fila_interativa">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-    </widget>
-    <widget class="QListWidget" name="fila_batch">
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-    </widget>
-   </widget>
    <widget class="QLabel" name="lbl_espera">
     <property name="geometry">
      <rect>
@@ -192,6 +149,36 @@
     </property>
     <property name="text">
      <string>Pronto</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="fila_sistema" native="true">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>80</y>
+      <width>171</width>
+      <height>221</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="fila_interativa" native="true">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>80</y>
+      <width>171</width>
+      <height>221</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="fila_batch" native="true">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>80</y>
+      <width>171</width>
+      <height>221</height>
+     </rect>
     </property>
    </widget>
   </widget>
